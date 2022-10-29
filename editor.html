@@ -291,7 +291,7 @@
 
         // too lazy to do it the right way so just base64 encode
         str = str.replace(/\{\{\{(.*?)\}\}\}/g, (match, p1) => {
-          return '{{{' + btoa(p1) + '}}}';
+          return '{{{' + btoa(unescape(encodeURIComponent(str))) + '}}}';
         });
 
         // other normal things
@@ -305,7 +305,7 @@
 
         // decode what we've encoded before
         str = str.replace(/\{\{\{(.*?)\}\}\}/g, (match, p1) => {
-          return '<code class="inline-code">' + atob(p1) + '</code>';
+          return '<code class="inline-code">' + decodeURIComponent(window.atob(str));(p1) + '</code>';
         });
 
         // return parsed
