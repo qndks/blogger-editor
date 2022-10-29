@@ -150,6 +150,14 @@
       	color: #880000;
         font-family: Consolas, monospace;
       }
+
+      blockquote {
+      		margin: 0;
+         padding: 0 15px;
+         color: #404040;
+         background-color: transparent;
+      }
+
     </style>
   </head>
   <body>
@@ -223,6 +231,7 @@
         str = str.replace(/\'\'\'(.*?)\'\'\'/g, '<b>$1</b>');
         str = str.replace(/\'\'(.*?)\'\'/g, '<i>$1</i>');
         str = str.replace(/__(.*?)__/g, '<u>$1</u>');
+        str = str.replace(/~~(.*?)~~/g, '<strike>$1</strike>');
         str = str.replace(/\{\{\{(.*?)\}\}\}/g, '<code class="inline-code">$1</code>');
         str = str.replace(/\[\[([^\|]*?)\]\]/g, '<a href="$1">$1</a>');
         str = str.replace(/\[\[(.*?)\|(.*?)\]\]/g, '<a href="$1">$2</a>');
