@@ -497,9 +497,67 @@
           }
         }, false)
 
+        editor.addEventListener('keydown', (e) => {
+          if (e.ctrlKey && e.key === 'b') {
+            e.preventDefault();
+            macro("'''", "'''", "end");
+          }
+
+          if (e.ctrlKey && e.key === 'i') {
+            e.preventDefault();
+            macro("''", "''", "end");
+          }
+
+          if (e.ctrlKey && e.key === 'u') {
+            e.preventDefault();
+            macro("__", "__", "end");
+          }
+
+          if (e.ctrlKey && e.key === 'k') {
+            e.preventDefault();
+            macro("[[", "]]", "end");
+          }
+
+          if (e.ctrlKey && e.key === '1') {
+            e.preventDefault();
+            macro("== ", " ==", "end");
+          }
+
+          if (e.ctrlKey && e.key === '2') {
+            e.preventDefault();
+            macro("=== ", " ===", "end");
+          }
+
+          if (e.ctrlKey && e.key === '3') {
+            e.preventDefault();
+            macro("==== ", " ====", "end");
+          }
+        }, false)
+
         window.onbeforeunload = function(e) {
            return '나가기를 누르면 작성한 내용이 사라집니다.';
         };
+
+        function macro(m1, m2, selection) {
+            var start = editor.selectionStart;
+            var end = editor.selectionEnd;
+            var inside = editor.value.slice(start, end);
+            editor.value = editor.value.slice(0, start) + m1 + inside + m2 + editor.value.slice(end);
+            if (start === end) {
+                if (selection !== "after")
+                    editor.setSelectionRange(start + m1.length, start + m1.length);
+                else if (selection === "after")
+                    editor.setSelectionRange(end + m1.length + m2.length, end + m1.length + m2.length);
+            } else {
+                if (selection === "after")
+                    editor.setSelectionRange(end + m1.length + m2.length, end + m1.length + m2.length);
+                else if (selection === 'end')
+                    editor.setSelectionRange(end + m1.length + m2.length, end + m1.length + m2.length);
+                else if (selection === 'start')
+                    editor.setSelectionRange(start + m1.length, start + m1.length);
+            }
+            editor.focus();
+        }
     </script>
   </body>
 </html>
