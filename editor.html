@@ -286,10 +286,15 @@
       }
 
       function inlineParse (str) {
+        // escape things first
+        str = str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+        // too lazy to do it the right way so just base64 encode
         str = str.replace(/\{\{\{(.*?)\}\}\}/g, (match, p1) => {
           return '{{{' + btoa(p1) + '}}}';
         });
-        str = str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+        // other normal things
         str = str.replace(/\'\'\'\'\'(.*?)\'\'\'\'\'/g, '<b><i>$1</i></b>');
         str = str.replace(/\'\'\'(.*?)\'\'\'/g, '<b>$1</b>');
         str = str.replace(/\'\'(.*?)\'\'/g, '<i>$1</i>');
@@ -297,9 +302,13 @@
         str = str.replace(/~~(.*?)~~/g, '<strike>$1</strike>');
         str = str.replace(/\[\[([^\|]*?)\]\]/g, '<a href="$1">$1</a>');
         str = str.replace(/\[\[(.*?)\|(.*?)\]\]/g, '<a href="$1">$2</a>');
+
+        // decode what we've encoded before
         str = str.replace(/\{\{\{(.*?)\}\}\}/g, (match, p1) => {
           return '<code class="inline-code">' + atob(p1) + '</code>';
         });
+
+        // return parsed
         return str;
       }
 
