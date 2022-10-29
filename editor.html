@@ -224,7 +224,7 @@
       var previewRes = document.getElementById('result');
       var previewCon = document.getElementById('preview-container');
       var rawBtn = document.getElementById("raw-button");
-      var prviewBtn = document.getElementById('preview-button');
+      var previewBtn = document.getElementById('preview-button');
       var htmlBtn = document.getElementById('html-button');
 
       function previewHTML() {
@@ -232,7 +232,7 @@
         editor.classList.add('invisible');
         previewCon.classList.add('invisible');
         rawBtn.classList.remove('active');
-        prviewBtn.classList.remove('active');
+        previewBtn.classList.remove('active');
         htmlBtn.classList.add('active');
         var raw = editor.value;
         previewRes.innerText = parseHTML(raw);
@@ -243,7 +243,7 @@
         editor.classList.add('invisible');
         previewCon.classList.remove('invisible');
         rawBtn.classList.remove('active');
-        prviewBtn.classList.add('active');
+        previewBtn.classList.add('active');
         htmlBtn.classList.remove('active');
         var raw = editor.value;
         previewCon.children[0].innerHTML = parseHTML(raw);
@@ -264,7 +264,7 @@
         editor.classList.remove('invisible');
         previewCon.classList.add('invisible');
         rawBtn.classList.add('active');
-        prviewBtn.classList.remove('active');
+        previewBtn.classList.remove('active');
         htmlBtn.classList.remove('active');
       }
 
@@ -487,6 +487,16 @@
     </script>
 
     <script>
+        document.addEventListener('keydown', (e) => {
+          if (e.ctrlKey && e.shiftKey && e.key === 'X') {
+            if (rawBtn.classList.contains('active')) {
+              preview();
+            } else if (previewBtn.classList.contains('active')) {
+              viewraw();
+            }
+          }
+        }, false)
+
         window.onbeforeunload = function(e) {
            return '나가기를 누르면 작성한 내용이 사라집니다.';
         };
