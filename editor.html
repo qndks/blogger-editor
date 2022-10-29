@@ -222,6 +222,7 @@
         str = str.replace(/\'\'\'\'\'(.*?)\'\'\'\'\'/g, '<b><i>$1</i></b>');
         str = str.replace(/\'\'\'(.*?)\'\'\'/g, '<b>$1</b>');
         str = str.replace(/\'\'(.*?)\'\'/g, '<i>$1</i>');
+        str = str.replace(/__(.*?)__/g, '<u>$1</u>');
         str = str.replace(/\{\{\{(.*?)\}\}\}/g, '<code class="inline-code">$1</code>');
         str = str.replace(/\[\[([^\|]*?)\]\]/g, '<a href="$1">$1</a>');
         str = str.replace(/\[\[(.*?)\|(.*?)\]\]/g, '<a href="$1">$2</a>');
@@ -431,6 +432,12 @@
         s2 = newlines.join('\n');
         return s2;
       }
+    </script>
+
+    <script>
+        window.onbeforeunload = function(e) {
+           return '나가기를 누르면 작성한 내용이 사라집니다.';
+        };
     </script>
   </body>
 </html>
