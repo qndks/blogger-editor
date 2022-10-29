@@ -305,7 +305,7 @@
 
         // decode what we've encoded before
         str = str.replace(/\{\{\{(.*?)\}\}\}/g, (match, p1) => {
-          return '<code class="inline-code">' + decodeURIComponent(atob(p1)) + '</code>';
+          return '<code class="inline-code">' + decodeURIComponent(escape(atob(p1))) + '</code>';
         });
 
         // return parsed
