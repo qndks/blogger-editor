@@ -388,6 +388,7 @@
             h2counter++;
             h3counter = 1;
             continue;
+          }
 
           if (/^==== (.*?) ====$/.test(lines[i])) {
             newlines.push('<h3 id="h-' + (h1counter - 1) + '.' + (h2counter - 1) + '.' + h3counter + '">' + (h1counter - 1) + '.' + (h2counter - 1) + '.' + h3counter + '. ' + lines[i].slice(5, -5) + '</h3>');
