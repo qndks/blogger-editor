@@ -193,7 +193,7 @@
         var raw = editor.value;
         previewCon.children[0].innerHTML = parseHTML(raw);
         document.querySelectorAll('.main pre code').forEach((el) => {
-          hljs.highlight(el);
+          hljs.highlightElement(el);
         });
         renderMathInElement(previewCon, {
          delimiters: [
