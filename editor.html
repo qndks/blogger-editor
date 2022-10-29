@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+		<meta content='width=device-width, initial-scale=1' name='viewport'/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css">
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/highlight.min.js"></script>
     <link crossorigin='anonymous' href='https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css' integrity='sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X' rel='stylesheet'/>
@@ -20,7 +21,10 @@
       }
 
       body {
+        margin: auto;
+        width: 100%;
         padding: 10px;
+        max-width: 928px;
       }
 
       textarea {
@@ -31,7 +35,7 @@
         box-sizing: border-box;
         overflow-x: hidden;
         overflow-y: scroll;
-        padding: 10px;
+        padding: 40px 28px;
         resize: none;
         white-space: pre-wrap;
         border: 1px solid #aaa;
@@ -62,6 +66,7 @@
         line-height: 1.5;
         height: calc(100% - 2rem);
         background-color: #f1f1f1;
+        padding: 40px 28px;
       }
 
       #result {
@@ -87,14 +92,15 @@
 
       .main {
         width: 100%;
-        max-width: 928px;
         background-color: #ffffff;
         padding: 40px 28px;
+        overflow-wrap: anywhere;
       }
 
       pre, code {
         margin: 0;
         white-space: pre-line;
+        overflow-wrap: anywhere;
       }
 
       .button {
@@ -108,11 +114,6 @@
         pointer-events: none;
         text-decoration: underline;
       }
-
-      #result-container {
-        padding: 10px;
-      }
-
 
       /* preview box */
 
@@ -169,6 +170,12 @@
 
       a:hover {
         color: #2196f3;
+      }
+
+      @media screen and (max-width: 800px) {
+        #result-container, textarea, .main {
+          padding: 34px 16px;
+        }
       }
 
     </style>
