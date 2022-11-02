@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="kr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <ul id="list">
+
+    </ul>
+    <script type="text/javascript">
+      var nodes = [];
+      var edges = [];
+
+      function append(arr, item) {
+        if (!arr.includes(item)) arr.push(item);
+      }
+
+      function linklist(json) {
+        var feeds = json.feed.entry;
+
+        for (var i = 0; i < feeds.length; i++) {
+          var title = feeds[i].title.$t;
+          append(nodes, title);
+
+          var description = feeds[i].content.$t;
+          var dummy = document.createElement('html');
+          dummy.innerHTML = description;
+          var ogLinks = dummy.getElementsByClassName('og-link');
+
+          for (var j = 0; j < ogLinks.length; j++) {
+            var title2 = ogLinks[j].getElementsByTagName('STRONG')[0].innerText;
+            append(nodes, title2);
+            append(edges, [title, title2])
+          }
+        }
+
+        var str = 'nodedef>name VARCHAR, label VARCHAR\n';
+        for (var i = 0; i < nodes.length; i++) {
+          str += 's' + (i+1) + ',' + nodes[i] + '\n';
+        }
+
+        str += 'edgedef>node1 VARCHAR,node2 VARCHAR,directed BOOLEAN\n';
+        for (var i = 0; i < edges.length; i++) {
+          str += 's' + (nodes.indexOf(edges[i][0])+1) + ',s' + (nodes.indexOf(edges[i][1])+1) + ',true\n';
+        }
+
+        console.log(str);
+      }
+    </script>
+    <script type="text/javascript" src="https://thefirelog.blogspot.com/feeds/posts/default?alt=json-in-script&callback=linklist"></script>
+
+  </body>
+</html>

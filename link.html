@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="kr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <ul id="list">
+
+    </ul>
+    <script type="text/javascript">
+      var list = document.getElementById('list');
+      function linklist(json) {
+        var feeds = json.feed.entry;
+          console.log(feeds);
+        for (var i = 0; i < feeds.length; i++) {
+          var el = document.createElement('LI');
+          var title = feeds[i].title.$t;
+          el.innerHTML = '<a href="' + feeds[i].link[4].href + '">' + title + '</a>';
+
+          var list2 = document.createElement('UL');
+          var description = feeds[i].content.$t;
+
+          var dummy = document.createElement('html');
+          dummy.innerHTML = description;
+          var ogLinks = dummy.getElementsByClassName('og-link');
+
+          for (var j = 0; j < ogLinks.length; j++) {
+            var href = ogLinks[j].getElementsByTagName('STRONG')[0].innerText;
+            var item = document.createElement('LI');
+            item.innerText = href;
+            list2.appendChild(item);
+          }
+
+          list.appendChild(el)
+          list.appendChild(list2)
+        }
+      }
+    </script>
+    <script type="text/javascript" src="https://thefirelog.blogspot.com/feeds/posts/default?alt=json-in-script&callback=linklist"></script>
+
+  </body>
+</html>
