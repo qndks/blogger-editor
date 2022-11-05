@@ -1,0 +1,155 @@
+gdata.io.handleScriptLoaded({
+  "version": "1.0",
+  "encoding": "UTF-8",
+  "feed": {
+    "xmlns": "http://www.w3.org/2005/Atom",
+    "xmlns$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",
+    "xmlns$blogger": "http://schemas.google.com/blogger/2008",
+    "xmlns$georss": "http://www.georss.org/georss",
+    "xmlns$gd": "http://schemas.google.com/g/2005",
+    "xmlns$thr": "http://purl.org/syndication/thread/1.0",
+    "id": {
+      "$t": "tag:blogger.com,1999:blog-3990107683267701427"
+    },
+    "updated": {
+      "$t": "2022-10-20T07:36:34.070-07:00"
+    },
+    "category": [{
+      "term": "구글블로그"
+    }, {
+      "term": "책"
+    }],
+    "title": {
+      "type": "text",
+      "$t": "불로그"
+    },
+    "subtitle": {
+      "type": "html",
+      "$t": ""
+    },
+    "link": [{
+      "rel": "http://schemas.google.com/g/2005#feed",
+      "type": "application/atom+xml",
+      "href": "https:\/\/thefirelog.blogspot.com\/feeds\/posts\/summary"
+    }, {
+      "rel": "self",
+      "type": "application/atom+xml",
+      "href": "https:\/\/www.blogger.com\/feeds\/3990107683267701427\/posts\/summary?alt=json-in-script\u0026max-results=1"
+    }, {
+      "rel": "alternate",
+      "type": "text/html",
+      "href": "https:\/\/thefirelog.blogspot.com\/"
+    }, {
+      "rel": "hub",
+      "href": "http://pubsubhubbub.appspot.com/"
+    }, {
+      "rel": "next",
+      "type": "application/atom+xml",
+      "href": "https:\/\/www.blogger.com\/feeds\/3990107683267701427\/posts\/summary?alt=json-in-script\u0026start-index=2\u0026max-results=1"
+    }],
+    "author": [{
+      "name": {
+        "$t": "김현석"
+      },
+      "uri": {
+        "$t": "http:\/\/www.blogger.com\/profile\/11308586629260829207"
+      },
+      "email": {
+        "$t": "noreply@blogger.com"
+      },
+      "gd$image": {
+        "rel": "http://schemas.google.com/g/2005#thumbnail",
+        "width": "16",
+        "height": "16",
+        "src": "https:\/\/img1.blogblog.com\/img\/b16-rounded.gif"
+      }
+    }],
+    "generator": {
+      "version": "7.00",
+      "uri": "http://www.blogger.com",
+      "$t": "Blogger"
+    },
+    "openSearch$totalResults": {
+      "$t": "6"
+    },
+    "openSearch$startIndex": {
+      "$t": "1"
+    },
+    "openSearch$itemsPerPage": {
+      "$t": "1"
+    },
+    "entry": [{
+      "id": {
+        "$t": "tag:blogger.com,1999:blog-3990107683267701427.post-5980514571257330998"
+      },
+      "published": {
+        "$t": "2022-10-20T05:05:00.039-07:00"
+      },
+      "updated": {
+        "$t": "2022-10-20T06:54:50.593-07:00"
+      },
+      "category": [{
+        "scheme": "http://www.blogger.com/atom/ns#",
+        "term": "구글블로그"
+      }],
+      "title": {
+        "type": "text",
+        "$t": "구글 블로그 JSON feed 썸네일 크기 조정 (s72-c) "
+      },
+      "summary": {
+        "type": "text",
+        "$t": "구글 블로그에서 JSON 피드의 media$thumbnail.url은 72 곱하기 72 픽셀 사진을 전달합니다. 썸네일로 쓰기에 72픽셀은 너무 작죠. 이 글에서는 사진 크기와 자르는 방식을 어떻게 바꾸는지 알아보겠습니다.자바스크립트의 str.replace와 정규표현식은 사용할 줄 안다고 전제한 채 쓰겠습니다.str.replace(\/\\\/s72.*?\\\/\/, '\/입력\/');s72-c의 뜻media$thumbnail.url의 값은 아래와 같습니다.https:\/\/blogger.googleusercontent.com\/img\/b\/R29vZ2xl\/AVvXsEhunrttuCsuVTUj0NCkWSpJ1QsggTG-FmR5EUCO64uRk2gjOqbR_"
+      },
+      "link": [{
+        "rel": "replies",
+        "type": "application/atom+xml",
+        "href": "https:\/\/thefirelog.blogspot.com\/feeds\/5980514571257330998\/comments\/default",
+        "title": "댓글"
+      }, {
+        "rel": "replies",
+        "type": "text/html",
+        "href": "https:\/\/thefirelog.blogspot.com\/2022\/10\/google-blog-json-feed-thumbnail-size.html#comment-form",
+        "title": "0개의 덧글"
+      }, {
+        "rel": "edit",
+        "type": "application/atom+xml",
+        "href": "https:\/\/www.blogger.com\/feeds\/3990107683267701427\/posts\/default\/5980514571257330998"
+      }, {
+        "rel": "self",
+        "type": "application/atom+xml",
+        "href": "https:\/\/www.blogger.com\/feeds\/3990107683267701427\/posts\/default\/5980514571257330998"
+      }, {
+        "rel": "alternate",
+        "type": "text/html",
+        "href": "https:\/\/thefirelog.blogspot.com\/2022\/10\/google-blog-json-feed-thumbnail-size.html",
+        "title": "구글 블로그 JSON feed 썸네일 크기 조정 (s72-c) "
+      }],
+      "author": [{
+        "name": {
+          "$t": "김현석"
+        },
+        "uri": {
+          "$t": "http:\/\/www.blogger.com\/profile\/11308586629260829207"
+        },
+        "email": {
+          "$t": "noreply@blogger.com"
+        },
+        "gd$image": {
+          "rel": "http://schemas.google.com/g/2005#thumbnail",
+          "width": "16",
+          "height": "16",
+          "src": "https:\/\/img1.blogblog.com\/img\/b16-rounded.gif"
+        }
+      }],
+      "media$thumbnail": {
+        "xmlns$media": "http://search.yahoo.com/mrss/",
+        "url": "https:\/\/blogger.googleusercontent.com\/img\/b\/R29vZ2xl\/AVvXsEgHUbqb4DWca8IU-Ln2VQUVGBHYXeR-gtlV3S2b4jgPBpFuNuMF3CToWzB0Q4eOStikNGfpm5SLVyw-lAUAyruZz1GB_kr13KminCmVQab3BWrbDfWZEW9Eje66XD9-R3Xlvwlqxf5m9TL8g5KSdNvZw_LlCjdOVA5vMYcVp3M8dIvVsvGQXrfmuxNmkA\/s72-c\/rect23935.png",
+        "height": "72",
+        "width": "72"
+      },
+      "thr$total": {
+        "$t": "0"
+      }
+    }]
+  }
+});
